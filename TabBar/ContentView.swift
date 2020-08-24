@@ -9,8 +9,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var selectedItem = 0
+    
     var body: some View {
-        Text("Hello, World!")
+        ZStack {
+            tabBarItems[self.selectedItem].backgroundColor.edgesIgnoringSafeArea(.all)
+            
+            TabBarView(selectedItem: self.$selectedItem)
+                .padding(.horizontal)
+        }
     }
 }
 
